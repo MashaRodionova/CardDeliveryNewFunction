@@ -14,10 +14,10 @@ public class DataGenerator {
     private String date;
 
 
-
     private String dateShift;
     private String city;
-   private String name;
+    private String name1;
+    private String name2;
     private String phone;
 
     public String getDate() {
@@ -32,8 +32,12 @@ public class DataGenerator {
         return city;
     }
 
-    public String getName() {
-        return name;
+    public String getName1() {
+        return name1;
+    }
+
+    public String getName2() {
+        return name2;
     }
 
     public String getPhone() {
@@ -43,8 +47,9 @@ public class DataGenerator {
     public DataGenerator(int shift1, int shift2) {
         this.date = generateDate(shift1);
         this.dateShift = generateDate(shift2);
-        //this.city = generateCity();
-        this.name = generateName();
+        this.city = generateCity();
+        this.name1 = generateName();
+        this.name2 = generateName();
         this.phone = generatePhone();
     }
 
@@ -59,58 +64,100 @@ public class DataGenerator {
 
     }
 
-    /*public static String generateCity() {
+    public static String generateCity() {
         // TODO: добавить логику для объявления переменной city и задания её значения, генерацию можно выполнить
         // с помощью Faker, либо используя массив валидных городов и класс Random
         Faker faker = new Faker(new Locale("ru"));
-        String [] cities = {"Майкоп",
-                "Горно-Алтайск",
-                "Уфа",
-                "Улан-Удэ",
-                "Махачкала",
-                "Магас",
-                "Нальчик",
-                "Элиста",
-                "Черкесск",
-                "Петрозаводск",
-                "Сыктывкар",
-                "Симферополь",
-                "Йошкар-Ола",
-                "Саранск",
-                "Якутск",
-                "Владикавказ",
-                "Казань",
-                "Кызыл",
-                "Ижевск",
+        String[] cities = {
                 "Абакан",
-                "Грозный",
-                "Чебоксары",
-                "Барнаул",
-                "Чита",
-                "Петропавловск-Камчатский",
-                "Краснодар",
-                "Красноярск",
-                "Пермь",
-                "Владивосток",
-                    "Ставрополь",
-                "Хабаровск",
-                "Благовещенск",
+                "Анадырь",
                 "Архангельск",
                 "Астрахань",
+                "Барнаул",
                 "Белгород",
+                "Биробиджан",
+                "Благовещенск",
                 "Брянск",
+                "Великий Новгород",
+                "Владивосток",
+                "Владикавказ",
                 "Владимир",
                 "Волгоград",
                 "Вологда",
                 "Воронеж",
+                "Горно-Алтайск",
+                "Грозный",
+                "Екатеринбург",
                 "Иваново",
-                "Иркутск"};
-
-
-
+                "Ижевск",
+                "Иркутск",
+                "Йошкар-Ола",
+                "Казань",
+                "Калининград",
+                "Калуга",
+                "Кемерово",
+                "Киров",
+                "Кострома",
+                "Краснодар",
+                "Красноярск",
+                "Курган",
+                "Курск",
+                "Кызыл",
+                "Липецк",
+                "Магадан",
+                "Магас",
+                "Майкоп",
+                "Махачкала",
+                "Москва",
+                "Мурманск",
+                "Нальчик",
+                "Нарьян-Мар",
+                "Нижний Новгород",
+                "Новосибирск",
+                "Омск",
+                "Орёл",
+                "Оренбург",
+                "Пенза",
+                "Пермь",
+                "Петрозаводск",
+                "Петропавловск-Камчатский",
+                "Псков",
+                "Ростов-на-Дону",
+                "Рязань",
+                "Салехард",
+                "Самара",
+                "Санкт-Петербург",
+                "Саранск",
+                "Саратов",
+                "Севастополь",
+                "Симферополь",
+                "Смоленск",
+                "Ставрополь",
+                "Сыктывкар",
+                "Тамбов",
+                "Тверь",
+                "Томск",
+                "Тула",
+                "Тюмень",
+                "Улан-Удэ",
+                "Ульяновск",
+                "Уфа",
+                "Хабаровск",
+                "Ханты-Мансийск",
+                "Чебоксары",
+                "Челябинск",
+                "Черкесск",
+                "Чита",
+                "Элиста",
+                "Южно-Сахалинск",
+                "Якутск",
+                "Ярославль"};
+    Random randomCities = new Random();
+    int indexOfCity = randomCities.nextInt(cities.length);
+String city = cities[indexOfCity];
         return city;
     }
-*/
+
     public static String generateName() {
         // TODO: добавить логику для объявления переменной name и задания её значения, для генерации можно
         // использовать Faker
@@ -129,18 +176,19 @@ public class DataGenerator {
     }
 
 
-        public static UserInfo generateUser(String locale) {
-            // TODO: добавить логику для создания пользователя user с использованием методов generateCity(locale),
-            // generateName(locale), generatePhone(locale)
-            UserInfo user = new UserInfo();
-            return user;
-        }
+    public static UserInfo generateUser(String locale) {
+        // TODO: добавить логику для создания пользователя user с использованием методов generateCity(locale),
+        // generateName(locale), generatePhone(locale)
+        UserInfo user = new UserInfo();
+        return user;
+    }
+
     public static class UserInfo {
         String city;
         String name;
         String phone;
     }
-    }
+}
 
 
 
