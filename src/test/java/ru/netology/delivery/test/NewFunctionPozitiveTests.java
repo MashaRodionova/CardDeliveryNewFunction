@@ -25,80 +25,46 @@ class NewFunctionPozitiveTests {
 
     @Test
     void shouldReplanTest1() {
-        DataGenerator userInfo = new DataGenerator(3, 4);
-        $("div [data-test-id='city'] input").setValue(userInfo.getCity());
+       DataGenerator tmp = new DataGenerator(3, 5);
+        $("div [data-test-id='city'] input").setValue(tmp.getUser().getCity());
         $("div [data-test-id='date'] input").doubleClick().sendKeys(Keys.BACK_SPACE);
-        $("div [data-test-id='date'] input").setValue(userInfo.getDate());
-        $("div [data-test-id='name'] input").setValue(userInfo.getName1());
-        $("div [data-test-id='phone'] input").setValue(userInfo.getPhone());
-        $$("[data-test-id='agreement']").last().click();
-        $$(By.className("button__text")).first().click();
+        $("div [data-test-id='date'] input").setValue(tmp.getDate1());
+        $("div [data-test-id='name'] input").setValue(tmp.getUser().getName());
+        $("div [data-test-id='phone'] input").setValue(tmp.getUser().getPhone());
+        $("span.checkbox__box").click();
+        $$("span.button__text").first().click();
         $("div [data-test-id='date'] input").doubleClick().sendKeys(Keys.BACK_SPACE);
-        $("div [data-test-id='date'] input").setValue(userInfo.getDateShift());
-        $$(By.className("button__text")).first().click();
-        $$(By.className("button__text")).last().click();
-        $$(".notification__content").first().shouldHave(exactText("Встреча успешно запланирована на " + userInfo.getDateShift()), Duration.ofSeconds(40));
+        $("div [data-test-id='date'] input").setValue(tmp.getDate2());
+        $$("span.button__text").first().click();
+        $("div.notification__content span.button__text").click();
+        $("div [data-test-id='success-notification'] .notification__content").shouldHave(exactText("Встреча успешно запланирована на " + tmp.getDate2()), Duration.ofSeconds(40));
 
     }
 
     @Test
     void shouldReplanTest2() {
-        DataGenerator userInfo = new DataGenerator(3, 3);
-        $("div [data-test-id='city'] input").setValue(userInfo.getCity());
+        DataGenerator tmp = new DataGenerator(3, 5);
+        $("div [data-test-id='city'] input").setValue(tmp.getUser().getCity());
         $("div [data-test-id='date'] input").doubleClick().sendKeys(Keys.BACK_SPACE);
-        $("div [data-test-id='date'] input").setValue(userInfo.getDate());
-        $("div [data-test-id='name'] input").setValue(userInfo.getName1());
-        $("div [data-test-id='phone'] input").setValue(userInfo.getPhone());
-        $$("[data-test-id='agreement']").last().click();
-        $$(By.className("button__text")).first().click();
-        $("div [data-test-id='date'] input").doubleClick().sendKeys(Keys.BACK_SPACE);
-        $("div [data-test-id='date'] input").setValue(userInfo.getDateShift());
-        $$(By.className("button__text")).first().click();
-        $$(By.className("button__text")).last().click();
-        $$(".notification__content").first().shouldHave(exactText("Встреча успешно запланирована на " + userInfo.getDateShift()), Duration.ofSeconds(40));
-
-
-    }
-
-    @Test
-    void shouldReplanTest3() {
-        DataGenerator userInfo = new DataGenerator(3, 10);
-        $("div [data-test-id='city'] input").setValue(userInfo.getCity());
-        $("div [data-test-id='date'] input").doubleClick().sendKeys(Keys.BACK_SPACE);
-        $("div [data-test-id='date'] input").setValue(userInfo.getDate());
-        $("div [data-test-id='name'] input").setValue(userInfo.getName1());
-        $("div [data-test-id='phone'] input").setValue(userInfo.getPhone());
-        $$("[data-test-id='agreement']").last().click();
-        $$(By.className("button__text")).first().click();
-        $("div [data-test-id='date'] input").doubleClick().sendKeys(Keys.BACK_SPACE);
-        $("div [data-test-id='date'] input").setValue(userInfo.getDateShift());
-        $$(By.className("button__text")).first().click();
-        $$(By.className("button__text")).last().click();
-        $$(".notification__content").first().shouldHave(exactText("Встреча успешно запланирована на " + userInfo.getDateShift()), Duration.ofSeconds(40));
-
-    }
-    @Test
-    void shouldReplanTest4() {
-        DataGenerator userInfo = new DataGenerator(3, 10);
-        $("div [data-test-id='city'] input").setValue(userInfo.getCity());
-        $("div [data-test-id='date'] input").doubleClick().sendKeys(Keys.BACK_SPACE);
-        $("div [data-test-id='date'] input").setValue(userInfo.getDate());
-        $("div [data-test-id='name'] input").setValue(userInfo.getName1());
-        $("div [data-test-id='phone'] input").setValue(userInfo.getPhone());
-        $$("[data-test-id='agreement']").last().click();
-        $$(By.className("button__text")).first().click();
+        $("div [data-test-id='date'] input").setValue(tmp.getDate1());
+        $("div [data-test-id='name'] input").setValue(tmp.getUser().getName());
+        $("div [data-test-id='phone'] input").setValue(tmp.getUser().getPhone());
+        $("span.checkbox__box").click();
+        $$("span.button__text").first().click();
+        $("div [data-test-id='success-notification'] .notification__content").shouldHave(exactText("Встреча успешно запланирована на " + tmp.getDate1()), Duration.ofSeconds(40));
         $("div [data-test-id='city'] input").doubleClick().sendKeys(Keys.BACK_SPACE);
-        $("div [data-test-id='city'] input").setValue(userInfo.getCity());
+        $("div [data-test-id='city'] input").setValue(tmp.getUser().getCity());
         $("div [data-test-id='date'] input").doubleClick().sendKeys(Keys.BACK_SPACE);
-        $("div [data-test-id='date'] input").setValue(userInfo.getDate());
-        $("div [data-test-id='name'] input").doubleClick().sendKeys(Keys.BACK_SPACE);
-        //$("div [data-test-id='name'] input").clear();
-        $("div [data-test-id='name'] input").setValue(userInfo.getName1());
+        $("div [data-test-id='date'] input").setValue(tmp.getDate2());
+        $("div [data-test-id='name'] input").clear();
+        $("div [data-test-id='name'] input").setValue(tmp.getUser().getName());
         $("div [data-test-id='phone'] input").doubleClick().sendKeys(Keys.BACK_SPACE);
-        $("div [data-test-id='phone'] input").setValue(userInfo.getPhone());
-        $$(By.className("button__text")).first().click();
-        $$(By.className("button__text")).last().click();
-        $$(".notification__content").first().shouldHave(exactText("Встреча успешно запланирована на " + userInfo.getDateShift()), Duration.ofSeconds(15));
+        $("div [data-test-id='phone'] input").setValue(tmp.getUser().getPhone());
+        $$("span.button__text").first().click();
+        $("div.notification__content span.button__text").click();
+        $("div [data-test-id='success-notification'] .notification__content").shouldHave(exactText("Встреча успешно запланирована на " + tmp.getDate2()), Duration.ofSeconds(40));
 
     }
+
+
 }
