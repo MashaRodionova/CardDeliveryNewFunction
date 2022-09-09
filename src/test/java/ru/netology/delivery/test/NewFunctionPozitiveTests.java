@@ -32,10 +32,10 @@ class NewFunctionPozitiveTests {
         $("div [data-test-id='name'] input").setValue(tmp.getUser().getName());
         $("div [data-test-id='phone'] input").setValue(tmp.getUser().getPhone());
         $("span.checkbox__box").click();
-        $$("span.button__text").first().click();
+        $("div.grid-row span.button__text").click();
         $("div [data-test-id='date'] input").doubleClick().sendKeys(Keys.BACK_SPACE);
         $("div [data-test-id='date'] input").setValue(tmp.getDate2());
-        $$("span.button__text").first().click();
+        $("div.grid-row span.button__text").click();
         $("div.notification__content span.button__text").click();
         $("div [data-test-id='success-notification'] .notification__content").shouldHave(exactText("Встреча успешно запланирована на " + tmp.getDate2()), Duration.ofSeconds(40));
 
@@ -50,17 +50,23 @@ class NewFunctionPozitiveTests {
         $("div [data-test-id='name'] input").setValue(tmp.getUser().getName());
         $("div [data-test-id='phone'] input").setValue(tmp.getUser().getPhone());
         $("span.checkbox__box").click();
-        $$("span.button__text").first().click();
+        $("div.grid-row span.button__text").click();
         $("div [data-test-id='success-notification'] .notification__content").shouldHave(exactText("Встреча успешно запланирована на " + tmp.getDate1()), Duration.ofSeconds(40));
         $("div [data-test-id='city'] input").doubleClick().sendKeys(Keys.BACK_SPACE);
         $("div [data-test-id='city'] input").setValue(tmp.getUser().getCity());
         $("div [data-test-id='date'] input").doubleClick().sendKeys(Keys.BACK_SPACE);
         $("div [data-test-id='date'] input").setValue(tmp.getDate2());
-        $("div [data-test-id='name'] input").clear();
+        $("div [data-test-id='name'] input").doubleClick().sendKeys(Keys.BACK_SPACE);
+        $("div [data-test-id='name'] input").doubleClick().sendKeys(Keys.BACK_SPACE);
+        $("div [data-test-id='name'] input").doubleClick().sendKeys(Keys.BACK_SPACE);
+        $("div [data-test-id='name'] input").doubleClick().sendKeys(Keys.BACK_SPACE);
+        $("div [data-test-id='name'] input").doubleClick().sendKeys(Keys.BACK_SPACE);
+        $("div [data-test-id='name'] input").doubleClick().sendKeys(Keys.BACK_SPACE);
+        $("div [data-test-id='name'] input").doubleClick().sendKeys(Keys.BACK_SPACE);
         $("div [data-test-id='name'] input").setValue(tmp.getUser().getName());
         $("div [data-test-id='phone'] input").doubleClick().sendKeys(Keys.BACK_SPACE);
         $("div [data-test-id='phone'] input").setValue(tmp.getUser().getPhone());
-        $$("span.button__text").first().click();
+        $("div.grid-row span.button__text").click();
         $("div.notification__content span.button__text").click();
         $("div [data-test-id='success-notification'] .notification__content").shouldHave(exactText("Встреча успешно запланирована на " + tmp.getDate2()), Duration.ofSeconds(40));
 
