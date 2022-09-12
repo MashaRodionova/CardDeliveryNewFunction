@@ -14,6 +14,8 @@ import java.time.Duration;
 import static com.codeborne.selenide.Condition.exactText;
 import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.Selenide.*;
+import static org.openqa.selenium.Keys.HOME;
+import static org.openqa.selenium.Keys.SHIFT;
 
 class NewFunctionPozitiveTests {
 
@@ -52,19 +54,13 @@ class NewFunctionPozitiveTests {
         $("span.checkbox__box").click();
         $("div.grid-row span.button__text").click();
         $("div [data-test-id='success-notification'] .notification__content").shouldHave(exactText("Встреча успешно запланирована на " + tmp.getDate1()), Duration.ofSeconds(40));
-        $("div [data-test-id='city'] input").doubleClick().sendKeys(Keys.BACK_SPACE);
+        $("div [data-test-id='city'] input").sendKeys(Keys.SHIFT, HOME, Keys.BACK_SPACE);
         $("div [data-test-id='city'] input").setValue(tmp.getUser().getCity());
         $("div [data-test-id='date'] input").doubleClick().sendKeys(Keys.BACK_SPACE);
         $("div [data-test-id='date'] input").setValue(tmp.getDate2());
-        $("div [data-test-id='name'] input").doubleClick().sendKeys(Keys.BACK_SPACE);
-        $("div [data-test-id='name'] input").doubleClick().sendKeys(Keys.BACK_SPACE);
-        $("div [data-test-id='name'] input").doubleClick().sendKeys(Keys.BACK_SPACE);
-        $("div [data-test-id='name'] input").doubleClick().sendKeys(Keys.BACK_SPACE);
-        $("div [data-test-id='name'] input").doubleClick().sendKeys(Keys.BACK_SPACE);
-        $("div [data-test-id='name'] input").doubleClick().sendKeys(Keys.BACK_SPACE);
-        $("div [data-test-id='name'] input").doubleClick().sendKeys(Keys.BACK_SPACE);
+        $("div [data-test-id='name'] input").sendKeys(Keys.SHIFT, HOME, Keys.BACK_SPACE);
         $("div [data-test-id='name'] input").setValue(tmp.getUser().getName());
-        $("div [data-test-id='phone'] input").doubleClick().sendKeys(Keys.BACK_SPACE);
+        $("div [data-test-id='phone'] input").sendKeys(Keys.SHIFT, HOME, Keys.BACK_SPACE);
         $("div [data-test-id='phone'] input").setValue(tmp.getUser().getPhone());
         $("div.grid-row span.button__text").click();
         $("div.notification__content span.button__text").click();
