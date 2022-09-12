@@ -146,11 +146,8 @@ String city = cities[indexOfCity];
 
 
     public static UserInfo generateUser(String locale) {
-        UserInfo user = new UserInfo();
-        user.city = generateCity();
-        user.name = generateName();
-        user.phone = generatePhone();
-        return user;
+        UserInfo user = new UserInfo(generateCity(), generateName(), generatePhone());
+              return user;
     }
 
 
