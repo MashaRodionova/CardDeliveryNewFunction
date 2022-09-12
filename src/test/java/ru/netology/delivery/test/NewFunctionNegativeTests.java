@@ -1,3 +1,4 @@
+/*
 package ru.netology.delivery.test;
 
 import com.codeborne.selenide.Condition;
@@ -81,4 +82,4 @@ class NewFunctionNegativeTests {
 
 
 
-}
+}*/
