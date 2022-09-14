@@ -2,6 +2,7 @@ package ru.netology.delivery.data;
 
 import com.github.javafaker.Faker;
 import com.github.javafaker.service.RandomService;
+import lombok.Value;
 
 
 import java.time.LocalDate;
@@ -9,7 +10,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 
 import java.util.Random;
-
+@Value
 public class DataGenerator {
 
     private UserInfo user;
@@ -22,17 +23,17 @@ public class DataGenerator {
         this.date2 = generateDate(shift2);
     }
 
-    public UserInfo getUser() {
-        return user;
-    }
-
-    public String getDate1() {
-        return date1;
-    }
-
-    public String getDate2() {
-        return date2;
-    }
+//    public UserInfo getUser() {
+//        return user;
+//    }
+//
+//    public String getDate1() {
+//        return date1;
+//    }
+//
+//    public String getDate2() {
+//        return date2;
+//    }
 
     public static String generateDate(int shift) {
         String date = LocalDate.now().plusDays(shift).format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
