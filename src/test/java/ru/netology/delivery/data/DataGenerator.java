@@ -1,7 +1,7 @@
 package ru.netology.delivery.data;
 
 import com.github.javafaker.Faker;
-import com.github.javafaker.service.RandomService;
+import lombok.NoArgsConstructor;
 import lombok.Value;
 
 
@@ -11,17 +11,18 @@ import java.util.Locale;
 
 import java.util.Random;
 @Value
+
 public class DataGenerator {
 
-    private UserInfo user;
+    /*private UserInfo user;
     private String date1;
-    private String date2;
+    private String date2;*/
 
-    public DataGenerator(int shift1, int shift2) {
+  /*  public DataGenerator(int shift1, int shift2) {
         this.user = generateUser("ru");
         this.date1 = generateDate(shift1);
         this.date2 = generateDate(shift2);
-    }
+    }*/
 
 //    public UserInfo getUser() {
 //        return user;
@@ -41,7 +42,6 @@ public class DataGenerator {
     }
 
     public static String generateCity() {
-        Faker faker = new Faker(new Locale("ru"));
         String[] cities = {
                 "Абакан",
                 "Анадырь",
