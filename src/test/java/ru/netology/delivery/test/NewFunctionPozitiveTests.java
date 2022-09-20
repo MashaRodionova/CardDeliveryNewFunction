@@ -33,7 +33,7 @@ private SelenideElement cityField = $("div [data-test-id='city'] input");
     }
 
     @Test
-    void shouldPlanAndReplanMeet() {
+    void shouldPlanAndReplanMeetWithShiftThreeDays() {
         var validUser = DataGenerator.generateUser("ru");
         var daysToAddForFirstMeeting = 4;
         var firstMeetingDate = DataGenerator.generateDate(daysToAddForFirstMeeting);
@@ -60,6 +60,65 @@ private SelenideElement cityField = $("div [data-test-id='city'] input");
         $("div [data-test-id='success-notification'] .notification__content").shouldHave(exactText("Встреча успешно запланирована на " + secondMeetingDate), Duration.ofSeconds(40));
 
     }
+
+    @Test
+    void shouldPlanAndReplanMeetWithShiftNullDays() {
+        var validUser = DataGenerator.generateUser("ru");
+        var daysToAddForFirstMeeting = 4;
+        var firstMeetingDate = DataGenerator.generateDate(daysToAddForFirstMeeting);
+        var daysToAddForSecondMeeting = 4;
+        var secondMeetingDate = DataGenerator.generateDate(daysToAddForSecondMeeting);
+        cityField.setValue(validUser.getCity());
+        dateField.sendKeys(Keys.SHIFT, HOME, Keys.BACK_SPACE);
+        dateField.setValue(firstMeetingDate);
+        nameField.setValue(validUser.getName());
+        phoneField.setValue(validUser.getPhone());
+        checkbox.click();
+        buttonPlan.click();
+        $("div [data-test-id='success-notification'] .notification__content").shouldHave(exactText("Встреча успешно запланирована на " + firstMeetingDate), Duration.ofSeconds(40));
+        cityField.sendKeys(Keys.SHIFT, HOME, Keys.BACK_SPACE);
+        cityField.setValue(validUser.getCity());
+        dateField.doubleClick().sendKeys(Keys.BACK_SPACE);
+        dateField.setValue(secondMeetingDate);
+        nameField.sendKeys(Keys.SHIFT, HOME, Keys.BACK_SPACE);
+        nameField.setValue(validUser.getName());
+        phoneField.sendKeys(Keys.SHIFT, HOME, Keys.BACK_SPACE);
+        phoneField.setValue(validUser.getPhone());
+        buttonPlan.click();
+        buttonReplan.click();
+        $("div [data-test-id='success-notification'] .notification__content").shouldHave(exactText("Встреча успешно запланирована на " + secondMeetingDate), Duration.ofSeconds(40));
+
+    }
+
+    @Test
+    void shouldPlanAndReplanMeetWithShiftMinusFiveDays() {
+        var validUser = DataGenerator.generateUser("ru");
+        var daysToAddForFirstMeeting = 9;
+        var firstMeetingDate = DataGenerator.generateDate(daysToAddForFirstMeeting);
+        var daysToAddForSecondMeeting = 4;
+        var secondMeetingDate = DataGenerator.generateDate(daysToAddForSecondMeeting);
+        cityField.setValue(validUser.getCity());
+        dateField.sendKeys(Keys.SHIFT, HOME, Keys.BACK_SPACE);
+        dateField.setValue(firstMeetingDate);
+        nameField.setValue(validUser.getName());
+        phoneField.setValue(validUser.getPhone());
+        checkbox.click();
+        buttonPlan.click();
+        $("div [data-test-id='success-notification'] .notification__content").shouldHave(exactText("Встреча успешно запланирована на " + firstMeetingDate), Duration.ofSeconds(40));
+        cityField.sendKeys(Keys.SHIFT, HOME, Keys.BACK_SPACE);
+        cityField.setValue(validUser.getCity());
+        dateField.doubleClick().sendKeys(Keys.BACK_SPACE);
+        dateField.setValue(secondMeetingDate);
+        nameField.sendKeys(Keys.SHIFT, HOME, Keys.BACK_SPACE);
+        nameField.setValue(validUser.getName());
+        phoneField.sendKeys(Keys.SHIFT, HOME, Keys.BACK_SPACE);
+        phoneField.setValue(validUser.getPhone());
+        buttonPlan.click();
+        buttonReplan.click();
+        $("div [data-test-id='success-notification'] .notification__content").shouldHave(exactText("Встреча успешно запланирована на " + secondMeetingDate), Duration.ofSeconds(40));
+
+    }
+
 
 
 }
